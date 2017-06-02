@@ -55,6 +55,9 @@ For an overview of all examples and documentation go to [the docs][3].
 - Don't forget to call ``then()``
 - Keasy instances only contain 1 KeyBoardEvent listener. Calling ``off()`` on an instance only removes the listener it registered. Cleaning up all listeners on a specific HTMLElement is currently your job.
 
+### Code Analysis
+[![BCH compliance](https://bettercodehub.com/edge/badge/RobertDiebels/keasy?branch=master)](https://bettercodehub.com/)
+
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent "KeyBoardEvent documentation"
 [2]: http://www.asarif.com/pub/Arif_TIC-STH2009.pdf  "Analysis of Text Entry Performance Metrics"
 [3]: https://robertdiebels.github.io/keasy "Keasy docs"
