@@ -57,4 +57,4 @@ For an overview of all examples and documentation go to [the docs][3].
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent "KeyBoardEvent documentation"
 [2]: http://www.asarif.com/pub/Arif_TIC-STH2009.pdf  "Analysis of Text Entry Performance Metrics"
-[3]: http://keasy.github.io  "Keasy docs"
+[3]: https://robertdiebels.github.io/keasy "Keasy docs"
