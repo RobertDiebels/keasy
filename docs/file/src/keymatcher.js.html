@@ -65,11 +65,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/keymatcher.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
- * Created by Robert on 1-6-2017.
- */
-import _isString from &apos;lodash/isString&apos;
-export const ctrl = &apos;CTRL&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">export const ctrl = &apos;CTRL&apos;;
 export const alt = &apos;ALT&apos;;
 export const shift = &apos;SHIFT&apos;;
 
@@ -80,32 +76,14 @@ export default class KeyMatcher {
     }
 
     /**
-     * @desc Sets a {String} of keys this instance of {@link KeyMatcher} should match for calls to {@link KeyMatcher.with} and {@link KeyMatcher.withEvent}.
+     * @desc Sets a {String} of keys this instance of {@link KeyMatcher} should match for calls to {@link KeyMatcher.withEvent}.
      * @param {String} keyString - A {@link String} of the form &quot;keyX+keyY+...+KeyN&quot;.
      * @returns {KeyMatcher}
      */
     match(keyString) {
-        //TODO: Use regex to filter whitespace.
         const keys = keyString.split(&apos;+&apos;);
         this._setKeysToMatch(keys);
         return this;
-    }
-
-    //TODO: Remove this function &quot;registered as keyword error&quot;
-    /**
-     * @desc Matches the keys passed to {@link KeyMatcher.match} with the passed {@link KeyBoardEvent}.
-     * @param {KeyBoardEvent} event - A {@link KeyBoardEvent} the keys passed to {@link KeyMatcher.match} will be matched with.
-     * @returns {boolean}
-     * @deprecated
-     */
-    with(event) {
-        const EVENT_TYPE_ERROR = &quot;KeyMatcher.with(event) expects a KeyBoardEvent. This isn&apos;t one.&quot;;
-        if (event instanceof KeyboardEvent) {
-            return this.withEvent(event);
-        }
-        else{
-            throw new TypeError(EVENT_TYPE_ERROR)
-        }
     }
 
     /**
@@ -114,7 +92,13 @@ export default class KeyMatcher {
      * @returns {boolean}
      */
     withEvent(event) {
-        return !!this._matchesKeys(event);
+        const EVENT_TYPE_ERROR = &quot;KeyMatcher.with(event) expects a KeyBoardEvent. This isn&apos;t one.&quot;;
+        if (event instanceof KeyboardEvent) {
+            return !!this._matchesKeys(event);
+        }
+        else {
+            throw new TypeError(EVENT_TYPE_ERROR)
+        }
     }
 
     _setKeysToMatch(keys) {
@@ -174,18 +158,18 @@ export default class KeyMatcher {
     }
 
     _shouldMatchShift(pressedShift) {
-        return this._shouldMatchFunctionKey(pressedShift, this._checkShift)
+        return KeyMatcher._shouldMatchFunctionKey(pressedShift, this._checkShift)
     }
 
     _shouldMatchCtrl(pressedCtrl) {
-        return this._shouldMatchFunctionKey(pressedCtrl, this._checkCtrl)
+        return KeyMatcher._shouldMatchFunctionKey(pressedCtrl, this._checkCtrl)
     }
 
     _shouldMatchAlt(pressedAlt) {
-        return this._shouldMatchFunctionKey(pressedAlt, this._checkAlt)
+        return KeyMatcher._shouldMatchFunctionKey(pressedAlt, this._checkAlt)
     }
 
-    _shouldMatchFunctionKey(pressedFunctionKey, shouldMatch) {
+    static _shouldMatchFunctionKey(pressedFunctionKey, shouldMatch) {
         if (shouldMatch) {
             return pressedFunctionKey === shouldMatch;
         }

@@ -65,10 +65,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/keasy.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
- * Created by Robert on 28-5-2017.
- */
-import _isString from &apos;lodash/isString&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import _isString from &apos;lodash/isString&apos;;
 import _isInteger from &apos;lodash/isInteger&apos;;
 import _isFunction from &apos;lodash/isFunction&apos;;
 import _debounce from &apos;lodash/debounce&apos;;
@@ -131,7 +128,7 @@ export default class Keasy {
      */
     when(eventType) {
         if (_isString(eventType)) {
-            this._event = this._generateKeyEventObject(this._removeKeasyEventSpace(eventType));
+            this._event = this._generateKeyEventObject(Keasy._removeKeasyEventSpace(eventType));
         }
         else {
             this._event = new KeyDown();
@@ -213,11 +210,11 @@ export default class Keasy {
     after(amount, unit) {
         const AMOUNT_TYPE_ERROR = &quot;Keasy.after(amount,unit) expects &apos;amount&apos; to be an Integer. It isn&apos;t.&quot;;
         if (_isInteger(amount)) {
-            this._delay = this._toMilliseconds(amount, unit || milliseconds);
+            this._delay = Keasy._toMilliseconds(amount, unit || milliseconds);
             this.off();
             this._subscribeToEvent();
         }
-        else{
+        else {
             throw new TypeError(AMOUNT_TYPE_ERROR);
         }
         return this;
@@ -248,7 +245,7 @@ export default class Keasy {
             this.off();
             this._subscribeToEvent();
         }
-        else{
+        else {
             throw new TypeError(KEYSTRING_TYPE_ERROR);
         }
         return this;
@@ -283,7 +280,7 @@ export default class Keasy {
 
 
         const keyMatchingDebouncedListener = _debounce(function (event) {
-            if (self._keyStringToMatch &amp;&amp; new KeyMatcher().match(self._keyStringToMatch).with(event)) {
+            if (self._keyStringToMatch &amp;&amp; new KeyMatcher().match(self._keyStringToMatch).withEvent(event)) {
                 self._callback();
             }
         }, self._delay);
@@ -299,7 +296,7 @@ export default class Keasy {
         };
 
         const keyMatchingListener = function (event) {
-            if (self._keyStringToMatch &amp;&amp; new KeyMatcher().match(self._keyStringToMatch).with(event)) {
+            if (self._keyStringToMatch &amp;&amp; new KeyMatcher().match(self._keyStringToMatch).withEvent(event)) {
                 self._callback();
             }
         };
@@ -307,7 +304,7 @@ export default class Keasy {
         return (this._keyStringToMatch) ? keyMatchingListener : listener;
     }
 
-    _removeKeasyEventSpace(eventString) {
+    static _removeKeasyEventSpace(eventString) {
         return eventString.replace(keasyEventSpace, &quot;&quot;);
     }
 
@@ -315,7 +312,7 @@ export default class Keasy {
         return _isInteger(this._delay);
     }
 
-    _toMilliseconds(amount, unit) {
+    static _toMilliseconds(amount, unit) {
         if (amount &gt; 0) {
             switch (unit) {
                 case seconds:

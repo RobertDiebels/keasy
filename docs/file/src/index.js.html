@@ -65,10 +65,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
- * Created by Robert on 28-5-2017.
- */
-import Keasy from &apos;keasy&apos;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Keasy from &apos;keasy&apos;
 
 /**
  * @see Keasy.down
@@ -110,7 +107,7 @@ export function when(eventType) {
  * @example &lt;caption&gt;Example 1&lt;/caption&gt;
  * Keasy.keydown().on(document.getElementById(&apos;fancyId&apos;)).then(function(){console.warn(&quot;Yea I&apos;m down with it!&quot;)});
  */
-export function keydown(){
+export function keydown() {
     return new Keasy().when(down);
 }
 
@@ -121,7 +118,7 @@ export function keydown(){
  * @example &lt;caption&gt;Example 1&lt;/caption&gt;
  * Keasy.keypress().on(document.getElementById(&apos;fancyId&apos;)).then(function(){console.warn(&quot;Yea you keep pressing those buttons!&quot;)});
  */
-export function keypress(){
+export function keypress() {
     return new Keasy().when(press);
 }
 
@@ -132,7 +129,7 @@ export function keypress(){
  * @example &lt;caption&gt;Example 1&lt;/caption&gt;
  * Keasy.keyup().on(document.getElementById(&apos;fancyId&apos;)).then(function(){console.warn(&quot;Up and running!&quot;)});
  */
-export function keyup(){
+export function keyup() {
     return new Keasy().when(up);
 }</code></pre>
 

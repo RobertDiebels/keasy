@@ -648,21 +648,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/keymatcher.js~keymatcher#with",
-    "class/src/keymatcher.js~KeyMatcher.html#instance-method-with",
-    "src/keymatcher.js~KeyMatcher#with",
-    "method"
-  ],
-  [
     "src/keymatcher.js~keymatcher#withevent",
     "class/src/keymatcher.js~KeyMatcher.html#instance-method-withEvent",
     "src/keymatcher.js~KeyMatcher#withEvent",
     "method"
-  ],
-  [
-    "src/test/test.js",
-    "file/src/test/test.js.html",
-    "src/test/test.js",
-    "file"
   ]
 ]

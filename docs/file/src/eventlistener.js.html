@@ -74,7 +74,7 @@ export default class EventListener {
      * @param {String} type - The type {String} to
      * @param executor
      */
-    constructor(type, executor){
+    constructor(type, executor) {
         this._type = type.toString();
         this._executor = executor;
     }
@@ -83,7 +83,7 @@ export default class EventListener {
      * @desc Binds the defined event-type and executor {@link Function} to the target.
      * @param {EventTarget} target - {@link EventTarget} which should be listened to.
      */
-    addTo(target){
+    addTo(target) {
         if (target.addEventListener) {
             target.addEventListener(this._type, this._executor);
         }
@@ -96,11 +96,11 @@ export default class EventListener {
      * Removes the defined event-type and executor {@link Function} to the target.
      * @param {EventTarget} target - {@link EventTarget} which should be listened to.
      */
-    removeFrom(target){
+    removeFrom(target) {
         if (target.removeEventListener) {
             target.removeEventListener(this._type, this._executor);
         }
-        else if(target.detachEvent){
+        else if (target.detachEvent) {
             target.detachEvent(this._type, this._executor);
         }
     }

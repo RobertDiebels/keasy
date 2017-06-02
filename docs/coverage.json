@@ -1,7 +1,7 @@
 {
-  "coverage": "64.44%",
-  "expectCount": 45,
-  "actualCount": 29,
+  "coverage": "63.63%",
+  "expectCount": 44,
+  "actualCount": 28,
   "files": {
     "src/eventlistener.js": {
       "expectCount": 4,
@@ -12,7 +12,7 @@
       "expectCount": 13,
       "actualCount": 12,
       "undocumentLines": [
-        47
+        44
       ]
     },
     "src/events/keydown.js": {
@@ -27,21 +27,21 @@
       "expectCount": 4,
       "actualCount": 0,
       "undocumentLines": [
-        7,
-        8,
-        16,
-        12
+        4,
+        5,
+        13,
+        9
       ]
     },
     "src/keymatcher.js": {
-      "expectCount": 8,
-      "actualCount": 3,
+      "expectCount": 7,
+      "actualCount": 2,
       "undocumentLines": [
-        9,
-        6,
-        11,
         5,
-        7
+        2,
+        7,
+        1,
+        3
       ]
     },
     "src/events/keypress.js": {
