@@ -1,0 +1,24 @@
+//Keasy.hold("CTRL").for(3000).on(target).then(function(){
+// console.warn('Held for 3000 millis')});
+// hold(keyString) {
+//
+// }
+//
+// for(amount, unit) {
+//
+// }
+//
+// hasCode(code) {
+//
+// }
+
+
+
+    preventDefault() {
+        this._preventDefault = true;
+    }
+
+        //TODO:
+        //KeyMatcher(string).matches(param)
+        //KeyMatcher(string).matchesEvent(event)
+        //KeyMatcher(string).matchesString(string);

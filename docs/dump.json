@@ -1,0 +1,3015 @@
+[
+  {
+    "__docId__": 0,
+    "kind": "file",
+    "name": "src/eventlistener.js",
+    "content": "/**\r\n * @desc Class which functions as a wrapper which holds a defined listener {@link Function}.\r\n * This is done to ensure that when a listener {@link Function} is to be removed from and {@link EventTarget} the reference is the same as when it was added.\r\n */\r\nexport default class EventListener {\r\n    /**\r\n     * @param {String} type - The type {String} to\r\n     * @param executor\r\n     */\r\n    constructor(type, executor){\r\n        this._type = type.toString();\r\n        this._executor = executor;\r\n    }\r\n\r\n    /**\r\n     * @desc Binds the defined event-type and executor {@link Function} to the target.\r\n     * @param {EventTarget} target - {@link EventTarget} which should be listened to.\r\n     */\r\n    addTo(target){\r\n        if (target.addEventListener) {\r\n            target.addEventListener(this._type, this._executor);\r\n        }\r\n        else if (target.attachEvent) {\r\n            target.attachEvent(\"on\" + this._type, this._executor);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * Removes the defined event-type and executor {@link Function} to the target.\r\n     * @param {EventTarget} target - {@link EventTarget} which should be listened to.\r\n     */\r\n    removeFrom(target){\r\n        if (target.removeEventListener) {\r\n            target.removeEventListener(this._type, this._executor);\r\n        }\r\n        else if(target.detachEvent){\r\n            target.detachEvent(this._type, this._executor);\r\n        }\r\n    }\r\n}",
+    "static": true,
+    "longname": "src/eventlistener.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 1,
+    "kind": "class",
+    "name": "EventListener",
+    "memberof": "src/eventlistener.js",
+    "static": true,
+    "longname": "src/eventlistener.js~EventListener",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/eventlistener.js",
+    "importStyle": "EventListener",
+    "description": "Class which functions as a wrapper which holds a defined listener {@link Function}.\nThis is done to ensure that when a listener {@link Function} is to be removed from and {@link EventTarget} the reference is the same as when it was added.",
+    "lineNumber": 5,
+    "interface": false
+  },
+  {
+    "__docId__": 2,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/eventlistener.js~EventListener",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/eventlistener.js~EventListener#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 10,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "type",
+        "description": "The type {String} to"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "executor",
+        "description": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 3,
+    "kind": "member",
+    "name": "_type",
+    "memberof": "src/eventlistener.js~EventListener",
+    "static": false,
+    "longname": "src/eventlistener.js~EventListener#_type",
+    "access": null,
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 4,
+    "kind": "member",
+    "name": "_executor",
+    "memberof": "src/eventlistener.js~EventListener",
+    "static": false,
+    "longname": "src/eventlistener.js~EventListener#_executor",
+    "access": null,
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 5,
+    "kind": "method",
+    "name": "addTo",
+    "memberof": "src/eventlistener.js~EventListener",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/eventlistener.js~EventListener#addTo",
+    "access": null,
+    "description": "Binds the defined event-type and executor {@link Function} to the target.",
+    "lineNumber": 19,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "EventTarget"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "target",
+        "description": "{@link EventTarget} which should be listened to."
+      }
+    ]
+  },
+  {
+    "__docId__": 6,
+    "kind": "method",
+    "name": "removeFrom",
+    "memberof": "src/eventlistener.js~EventListener",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/eventlistener.js~EventListener#removeFrom",
+    "access": null,
+    "description": "Removes the defined event-type and executor {@link Function} to the target.",
+    "lineNumber": 32,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "EventTarget"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "target",
+        "description": "{@link EventTarget} which should be listened to."
+      }
+    ]
+  },
+  {
+    "__docId__": 7,
+    "kind": "file",
+    "name": "src/events/keydown.js",
+    "content": "import KeyEvent from './keyevent';\r\n\r\nexport default class KeyDown extends KeyEvent {\r\n    constructor(){\r\n        super('keydown');\r\n    }\r\n}",
+    "static": true,
+    "longname": "src/events/keydown.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 8,
+    "kind": "class",
+    "name": "KeyDown",
+    "memberof": "src/events/keydown.js",
+    "static": true,
+    "longname": "src/events/keydown.js~KeyDown",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/events/keydown.js",
+    "importStyle": "KeyDown",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "interface": false,
+    "extends": [
+      "src/events/keyevent.js~KeyEvent"
+    ]
+  },
+  {
+    "__docId__": 9,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/events/keydown.js~KeyDown",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/events/keydown.js~KeyDown#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": []
+  },
+  {
+    "__docId__": 10,
+    "kind": "file",
+    "name": "src/events/keyevent.js",
+    "content": "/**\r\n * Created by Robert on 31-5-2017.\r\n */\r\nimport _isString from 'lodash/isString';\r\nimport _isEqual from 'lodash/isEqual'\r\n\r\nexport default class KeyEvent {\r\n    constructor(type) {\r\n        this._type = type;\r\n    }\r\n\r\n    toString(){\r\n        return this._type;\r\n    }\r\n\r\n    equals(param) {\r\n        if (_isString(param)) {\r\n            return _isEqual(param, this._type);\r\n        }\r\n    }\r\n}",
+    "static": true,
+    "longname": "src/events/keyevent.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 11,
+    "kind": "class",
+    "name": "KeyEvent",
+    "memberof": "src/events/keyevent.js",
+    "static": true,
+    "longname": "src/events/keyevent.js~KeyEvent",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/events/keyevent.js",
+    "importStyle": "KeyEvent",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "interface": false
+  },
+  {
+    "__docId__": 12,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/events/keyevent.js~KeyEvent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/events/keyevent.js~KeyEvent#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "type",
+        "types": [
+          "*"
+        ]
+      }
+    ]
+  },
+  {
+    "__docId__": 13,
+    "kind": "member",
+    "name": "_type",
+    "memberof": "src/events/keyevent.js~KeyEvent",
+    "static": false,
+    "longname": "src/events/keyevent.js~KeyEvent#_type",
+    "access": null,
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 14,
+    "kind": "method",
+    "name": "toString",
+    "memberof": "src/events/keyevent.js~KeyEvent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/events/keyevent.js~KeyEvent#toString",
+    "access": null,
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 15,
+    "kind": "method",
+    "name": "equals",
+    "memberof": "src/events/keyevent.js~KeyEvent",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/events/keyevent.js~KeyEvent#equals",
+    "access": null,
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "param",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 16,
+    "kind": "file",
+    "name": "src/events/keypress.js",
+    "content": "import KeyEvent from './keyevent';\r\n\r\nexport default class KeyPress extends KeyEvent {\r\n    constructor() {\r\n        super('keypress');\r\n    }\r\n\r\n}",
+    "static": true,
+    "longname": "src/events/keypress.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 17,
+    "kind": "class",
+    "name": "KeyPress",
+    "memberof": "src/events/keypress.js",
+    "static": true,
+    "longname": "src/events/keypress.js~KeyPress",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/events/keypress.js",
+    "importStyle": "KeyPress",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "interface": false,
+    "extends": [
+      "src/events/keyevent.js~KeyEvent"
+    ]
+  },
+  {
+    "__docId__": 18,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/events/keypress.js~KeyPress",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/events/keypress.js~KeyPress#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": []
+  },
+  {
+    "__docId__": 19,
+    "kind": "file",
+    "name": "src/events/keyup.js",
+    "content": "import KeyEvent from './keyevent';\r\n\r\nexport default class KeyUp extends KeyEvent{\r\n    constructor(){\r\n        super('keyup');\r\n    }\r\n}",
+    "static": true,
+    "longname": "src/events/keyup.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 20,
+    "kind": "class",
+    "name": "KeyUp",
+    "memberof": "src/events/keyup.js",
+    "static": true,
+    "longname": "src/events/keyup.js~KeyUp",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/events/keyup.js",
+    "importStyle": "KeyUp",
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "interface": false,
+    "extends": [
+      "src/events/keyevent.js~KeyEvent"
+    ]
+  },
+  {
+    "__docId__": 21,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/events/keyup.js~KeyUp",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/events/keyup.js~KeyUp#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 4,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": []
+  },
+  {
+    "__docId__": 22,
+    "kind": "file",
+    "name": "src/index.js",
+    "content": "/**\r\n * Created by Robert on 28-5-2017.\r\n */\r\nimport Keasy from 'keasy'\r\n\r\n/**\r\n * @see Keasy.down\r\n * */\r\nexport const down = Keasy.down;\r\n/**\r\n * @see Keasy.up\r\n * */\r\nexport const up = Keasy.up;\r\n/**\r\n * @see Keasy.press\r\n * */\r\nexport const press = Keasy.press;\r\n/**\r\n * @see Keasy.minutes\r\n * */\r\nexport const minutes = Keasy.minutes;\r\n/**\r\n * @see Keasy.seconds\r\n * */\r\nexport const seconds = Keasy.seconds;\r\n/**\r\n * @see Keasy.milliseconds\r\n * */\r\nexport const milliseconds = Keasy.milliseconds;\r\n/**\r\n * @param {String} eventType\r\n * @returns {Keasy}\r\n * @see {@link Keasy.when}\r\n */\r\nexport function when(eventType) {\r\n    return new Keasy().when(eventType);\r\n}\r\n\r\n/**\r\n * @desc An alias for {@link Keasy.when}( {@link Keasy.down} ).\r\n * @returns {Keasy}\r\n * @see {@link Keasy.when}\r\n * @example <caption>Example 1</caption>\r\n * Keasy.keydown().on(document.getElementById('fancyId')).then(function(){console.warn(\"Yea I'm down with it!\")});\r\n */\r\nexport function keydown(){\r\n    return new Keasy().when(down);\r\n}\r\n\r\n/**\r\n * @desc An alias for Keasy.when(Keasy.press).\r\n * @returns {Keasy}\r\n * @see {@link Keasy.when}\r\n * @example <caption>Example 1</caption>\r\n * Keasy.keypress().on(document.getElementById('fancyId')).then(function(){console.warn(\"Yea you keep pressing those buttons!\")});\r\n */\r\nexport function keypress(){\r\n    return new Keasy().when(press);\r\n}\r\n\r\n/**\r\n * @desc An alias for Keasy.when(Keasy.up).\r\n * @see {@link Keasy.when}\r\n * @returns {Keasy}\r\n * @example <caption>Example 1</caption>\r\n * Keasy.keyup().on(document.getElementById('fancyId')).then(function(){console.warn(\"Up and running!\")});\r\n */\r\nexport function keyup(){\r\n    return new Keasy().when(up);\r\n}",
+    "static": true,
+    "longname": "src/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 23,
+    "kind": "variable",
+    "name": "down",
+    "memberof": "src/index.js",
+    "static": true,
+    "longname": "src/index.js~down",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/index.js",
+    "importStyle": "{down}",
+    "description": "",
+    "see": [
+      "Keasy.down"
+    ],
+    "lineNumber": 9,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 24,
+    "kind": "variable",
+    "name": "up",
+    "memberof": "src/index.js",
+    "static": true,
+    "longname": "src/index.js~up",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/index.js",
+    "importStyle": "{up}",
+    "description": "",
+    "see": [
+      "Keasy.up"
+    ],
+    "lineNumber": 13,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 25,
+    "kind": "variable",
+    "name": "press",
+    "memberof": "src/index.js",
+    "static": true,
+    "longname": "src/index.js~press",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/index.js",
+    "importStyle": "{press}",
+    "description": "",
+    "see": [
+      "Keasy.press"
+    ],
+    "lineNumber": 17,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 26,
+    "kind": "variable",
+    "name": "minutes",
+    "memberof": "src/index.js",
+    "static": true,
+    "longname": "src/index.js~minutes",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/index.js",
+    "importStyle": "{minutes}",
+    "description": "",
+    "see": [
+      "Keasy.minutes"
+    ],
+    "lineNumber": 21,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 27,
+    "kind": "variable",
+    "name": "seconds",
+    "memberof": "src/index.js",
+    "static": true,
+    "longname": "src/index.js~seconds",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/index.js",
+    "importStyle": "{seconds}",
+    "description": "",
+    "see": [
+      "Keasy.seconds"
+    ],
+    "lineNumber": 25,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 28,
+    "kind": "variable",
+    "name": "milliseconds",
+    "memberof": "src/index.js",
+    "static": true,
+    "longname": "src/index.js~milliseconds",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/index.js",
+    "importStyle": "{milliseconds}",
+    "description": "",
+    "see": [
+      "Keasy.milliseconds"
+    ],
+    "lineNumber": 29,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 29,
+    "kind": "function",
+    "name": "when",
+    "memberof": "src/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/index.js~when",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/index.js",
+    "importStyle": "{when}",
+    "description": "",
+    "see": [
+      "{@link Keasy.when}"
+    ],
+    "lineNumber": 35,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Keasy}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "eventType",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Keasy"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 30,
+    "kind": "function",
+    "name": "keydown",
+    "memberof": "src/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/index.js~keydown",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/index.js",
+    "importStyle": "{keydown}",
+    "description": "An alias for {@link Keasy.when}( {@link Keasy.down} ).",
+    "examples": [
+      "<caption>Example 1</caption>\nKeasy.keydown().on(document.getElementById('fancyId')).then(function(){console.warn(\"Yea I'm down with it!\")});"
+    ],
+    "see": [
+      "{@link Keasy.when}"
+    ],
+    "lineNumber": 46,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Keasy}"
+      }
+    ],
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Keasy"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 31,
+    "kind": "function",
+    "name": "keypress",
+    "memberof": "src/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/index.js~keypress",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/index.js",
+    "importStyle": "{keypress}",
+    "description": "An alias for Keasy.when(Keasy.press).",
+    "examples": [
+      "<caption>Example 1</caption>\nKeasy.keypress().on(document.getElementById('fancyId')).then(function(){console.warn(\"Yea you keep pressing those buttons!\")});"
+    ],
+    "see": [
+      "{@link Keasy.when}"
+    ],
+    "lineNumber": 57,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Keasy}"
+      }
+    ],
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Keasy"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 32,
+    "kind": "function",
+    "name": "keyup",
+    "memberof": "src/index.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/index.js~keyup",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/index.js",
+    "importStyle": "{keyup}",
+    "description": "An alias for Keasy.when(Keasy.up).",
+    "examples": [
+      "<caption>Example 1</caption>\nKeasy.keyup().on(document.getElementById('fancyId')).then(function(){console.warn(\"Up and running!\")});"
+    ],
+    "see": [
+      "{@link Keasy.when}"
+    ],
+    "lineNumber": 68,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Keasy}"
+      }
+    ],
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Keasy"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 33,
+    "kind": "file",
+    "name": "src/keasy.js",
+    "content": "/**\r\n * Created by Robert on 28-5-2017.\r\n */\r\nimport _isString from 'lodash/isString';\r\nimport _isInteger from 'lodash/isInteger';\r\nimport _isFunction from 'lodash/isFunction';\r\nimport _debounce from 'lodash/debounce';\r\nimport _keys from 'lodash/keys'\r\nimport KeyDown from './events/keydown';\r\nimport KeyPress from './events/keypress';\r\nimport KeyUp from './events/keyup';\r\nimport EventListener from './eventlistener';\r\nimport KeyMatcher from './keymatcher';\r\n\r\nconst keasyEventSpace = \"keasy:\";\r\n/**\r\n * @type {string}\r\n */\r\nexport const down = keasyEventSpace + \"keydown\";\r\n/**\r\n * @type {string}\r\n */\r\nexport const up = keasyEventSpace + \"keyup\";\r\n/**\r\n * @type {string}\r\n */\r\nexport const press = keasyEventSpace + \"keypress\";\r\nconst eventMap = {\r\n    'keydown': KeyDown,\r\n    'keypress': KeyPress,\r\n    'keyup': KeyUp\r\n};\r\n\r\n/**\r\n * @type {string}\r\n */\r\nexport const milliseconds = 'milliseconds';\r\n/**\r\n * @type {string}\r\n */\r\nexport const seconds = 'seconds';\r\n/**\r\n * @type {string}\r\n */\r\nexport const minutes = 'minutes';\r\n\r\nexport default class Keasy {\r\n\r\n    /**\r\n     * @external {KeyBoardEvent} https://developer.mozilla.org/en-US/docs/Web/API/KeyBoardEvent\r\n     */\r\n    /**\r\n     * @external {EventTarget} https://developer.mozilla.org/en-US/docs/Web/API/EventTarget\r\n     */\r\n\r\n    /**\r\n     * @desc Sets the eventType {@link String} this {@link Keasy} instance will capture.\r\n     * @param {String} [eventType] - This parameter is optional. If Keasy.when(eventType) is not passed an eventType it defaults to 'keydown'. Passing an eventType is advisable for readability purposes.\r\n     * @returns {Keasy}\r\n     * @example <caption>Example 1 (Using Keasy shorthand)</caption>\r\n     * Keasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn(\"Keasy-peasy!\")});\r\n     * @example <caption>Example 2 (Using string)</caption>\r\n     * Keasy.when('keydown').on(document.getElementById('fancyId')).then(function(){console.warn(\"Keasy-peasy!\")});\r\n     */\r\n    when(eventType) {\r\n        if (_isString(eventType)) {\r\n            this._event = this._generateKeyEventObject(this._removeKeasyEventSpace(eventType));\r\n        }\r\n        else {\r\n            this._event = new KeyDown();\r\n        }\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * @desc Binds an {@link EventTarget} to this {@link Keasy} instance.\r\n     * @param {EventTarget} eventTarget - The targeted {@link EventTarget} Keasy should target for {@link KeyBoardEvent}.\r\n     * @throws {TypeError} If {@link Keasy.on} is not passed a valid {@link EventTarget} it will throw a {@link TypeError}.\r\n     * @returns {Keasy}\r\n     * @example <caption>Example 1 (Using DOM)</caption>\r\n     * Keasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn(\"Keasy-peasy!\")});\r\n     * @example <caption>Example 2 (Using jQuery)</caption>\r\n     * Keasy.when(Keasy.down).on($('#fancyId')[0]).then(function(){console.warn(\"Keasy-peasy!\")});\r\n     */\r\n    on(eventTarget) {\r\n        const DOMELEMENT_TYPE_ERROR = \"Keasy.on(eventTarget) expects 'eventTarget' to be a valid EventTarget. It isn't.\";\r\n        if (eventTarget instanceof EventTarget) {\r\n            this._eventTarget = eventTarget;\r\n        }\r\n        else {\r\n            throw new TypeError(DOMELEMENT_TYPE_ERROR);\r\n        }\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * @desc Binds a callback {@link Function} to this Keasy intsance.\r\n     * Not calling {@link Keasy.then} means Keasy produces no output. Keasy still catches events of the type passed to {@link Keasy.when}.\r\n     * Meaning you can call {@link Keasy.then} at another point in your code. See Example 3 for details.\r\n     * @param {Function} callback - The Function Keasy will call after it has caught a {@link KeyBoardEvent}.\r\n     * @throws {TypeError} If Keasy.then(callback) is not passed a {@link Function} a {@link TypeError} is thrown.\r\n     * @returns {Keasy}\r\n     * @example <caption>Example 1</caption>\r\n     * Keasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn('Thank you!!')});\r\n     * @example <caption>Example 2</caption>\r\n     * Keasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){document.getElementById('pretty').innterText = \"Thank you!!\"});\r\n     * @example <caption>Example 3</caption>\r\n     * var keasy = Keasy.when(Keasy.down).on(document.getElementById('fancyId'));\r\n     * document.getElementById('pretty').innerText = \"Waiting is so boring..\";\r\n     * function delayedThen(){\r\n     *      document.getElementById('pretty').innerText = \"Ok I'm fed up with waiting.. For the love of God please type something!\";\r\n     *      keasy.then(function(){\r\n     *          document.getElementById('pretty').innerText = \"Thank you!!\";\r\n     *      });\r\n     * };\r\n     * window.setTimeout(delayedThen, 5000);\r\n     */\r\n    then(callback) {\r\n        const CALLBACK_TYPE_ERROR = \"Keasy.then(callback) expects 'callback' to be a Function. It isn't.\";\r\n        if (_isFunction(callback)) {\r\n            this._callback = callback;\r\n            this.off();\r\n            this._subscribeToEvent();\r\n        }\r\n        else {\r\n            throw new TypeError(CALLBACK_TYPE_ERROR);\r\n        }\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * @desc Sets the amount of time and the unit of time this {@link Keasy} instance should wait until triggering the callback set in {@link Keasy.then}\r\n     * @param {Number} amount - The amount of time Keasy waits until the {@link EventTarget} passed to {@link Keasy.on} stops firing {@link KeyBoardEvent}s.\r\n     * @param {String} [unit] - This parameter is optional. If  Keasy.after(amount,unit) is not passed a unit it defaults to milliseconds.\r\n     * @throws {TypeError}\r\n     * @returns {Keasy}\r\n     * @example <caption>Example 1</caption>\r\n     * Keasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn('Thank you!!')}).after(600);\r\n     * @example <caption>Example 2</caption>\r\n     * Keasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn('Thank you!!')}).after(60000, Keasy.milliseconds);\r\n     * @example <caption>Example 3</caption>\r\n     * Keasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn('Thank you!!')}).after(60, Keasy.seconds);\r\n     * @example <caption>Example 4</caption>\r\n     * Keasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn('Thank you!!')}).after(1, Keasy.minutes);\r\n     */\r\n    after(amount, unit) {\r\n        const AMOUNT_TYPE_ERROR = \"Keasy.after(amount,unit) expects 'amount' to be an Integer. It isn't.\";\r\n        if (_isInteger(amount)) {\r\n            this._delay = this._toMilliseconds(amount, unit || milliseconds);\r\n            this.off();\r\n            this._subscribeToEvent();\r\n        }\r\n        else{\r\n            throw new TypeError(AMOUNT_TYPE_ERROR);\r\n        }\r\n        return this;\r\n    }\r\n\r\n    /**\r\n     * @desc Removes the current listener from the {@link EventTarget} passed to {@link Keasy.on}.\r\n     */\r\n    off() {\r\n        if (this._eventListener) {\r\n            this._eventListener.removeFrom(this._eventTarget);\r\n        }\r\n    }\r\n\r\n    /**\r\n     * @desc Binds a {@link String} representing a set of keys to this {@link Keasy} instance limiting when the callback {@link Function} passed to {@link Keasy.then} gets called.\r\n     * The keys in the {String} that is passed should be divided by a \"+\" character.\r\n     * @param {String} keyString\r\n     * @throws {TypeError} If {@link Keasy.is} is not passed a {String} a {@link TypeError} is thrown.\r\n     * @returns {Keasy}\r\n     * @example <caption>Example 1</caption>\r\n     * Keasy.when(Keasy.eventType).on(target).is(Keasy.ctrl+\"+k\").then(function(){console.warn(\"Event was CTRL+K\")})\r\n     */\r\n    is(keyString) {\r\n        const KEYSTRING_TYPE_ERROR = \"Keasy.is(keyString) expects 'keyString' to be a String. It isn't.\";\r\n        if (_isString(keyString)) {\r\n            this._keyStringToMatch = keyString;\r\n            this.off();\r\n            this._subscribeToEvent();\r\n        }\r\n        else{\r\n            throw new TypeError(KEYSTRING_TYPE_ERROR);\r\n        }\r\n        return this;\r\n    }\r\n\r\n    _generateKeyEventObject(eventName) {\r\n        let event = null;\r\n        _keys(eventMap).forEach((key) => {\r\n            const keyEvent = new eventMap[key]();\r\n            if (keyEvent.equals(eventName)) {\r\n                event = keyEvent;\r\n            }\r\n        });\r\n        return event;\r\n    }\r\n\r\n    _subscribeToEvent() {\r\n        this._eventListener = new EventListener(this._event, this._generateExecutor());\r\n        this._eventListener.addTo(this._eventTarget);\r\n    }\r\n\r\n    _generateExecutor() {\r\n\r\n        return (this._hasDelay()) ? this._generateDebouncedListener() : this._genereateRegularListener();\r\n    }\r\n\r\n    _generateDebouncedListener() {\r\n        const self = this;\r\n        const debouncedListener = _debounce(function () {\r\n            self._callback();\r\n        }, self._delay);\r\n\r\n\r\n        const keyMatchingDebouncedListener = _debounce(function (event) {\r\n            if (self._keyStringToMatch && new KeyMatcher().match(self._keyStringToMatch).with(event)) {\r\n                self._callback();\r\n            }\r\n        }, self._delay);\r\n\r\n        return (this._keyStringToMatch) ? keyMatchingDebouncedListener : debouncedListener;\r\n    }\r\n\r\n    _genereateRegularListener() {\r\n        const self = this;\r\n\r\n        const listener = function () {\r\n            self._callback();\r\n        };\r\n\r\n        const keyMatchingListener = function (event) {\r\n            if (self._keyStringToMatch && new KeyMatcher().match(self._keyStringToMatch).with(event)) {\r\n                self._callback();\r\n            }\r\n        };\r\n\r\n        return (this._keyStringToMatch) ? keyMatchingListener : listener;\r\n    }\r\n\r\n    _removeKeasyEventSpace(eventString) {\r\n        return eventString.replace(keasyEventSpace, \"\");\r\n    }\r\n\r\n    _hasDelay() {\r\n        return _isInteger(this._delay);\r\n    }\r\n\r\n    _toMilliseconds(amount, unit) {\r\n        if (amount > 0) {\r\n            switch (unit) {\r\n                case seconds:\r\n                    return amount * 1000;\r\n                case minutes:\r\n                    return amount * 60 * 1000;\r\n                default:\r\n                    return amount;\r\n            }\r\n        }\r\n        else {\r\n            return 0;\r\n        }\r\n    }\r\n}",
+    "static": true,
+    "longname": "src/keasy.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 34,
+    "kind": "variable",
+    "name": "keasyEventSpace",
+    "memberof": "src/keasy.js",
+    "static": true,
+    "longname": "src/keasy.js~keasyEventSpace",
+    "access": null,
+    "export": false,
+    "importPath": "keasy/src/keasy.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 35,
+    "kind": "variable",
+    "name": "down",
+    "memberof": "src/keasy.js",
+    "static": true,
+    "longname": "src/keasy.js~down",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/keasy.js",
+    "importStyle": "{down}",
+    "description": "",
+    "lineNumber": 19,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 36,
+    "kind": "variable",
+    "name": "up",
+    "memberof": "src/keasy.js",
+    "static": true,
+    "longname": "src/keasy.js~up",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/keasy.js",
+    "importStyle": "{up}",
+    "description": "",
+    "lineNumber": 23,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 37,
+    "kind": "variable",
+    "name": "press",
+    "memberof": "src/keasy.js",
+    "static": true,
+    "longname": "src/keasy.js~press",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/keasy.js",
+    "importStyle": "{press}",
+    "description": "",
+    "lineNumber": 27,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 38,
+    "kind": "variable",
+    "name": "eventMap",
+    "memberof": "src/keasy.js",
+    "static": true,
+    "longname": "src/keasy.js~eventMap",
+    "access": null,
+    "export": false,
+    "importPath": "keasy/src/keasy.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 28,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "{\"keydown\": *, \"keypress\": *, \"keyup\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 39,
+    "kind": "variable",
+    "name": "milliseconds",
+    "memberof": "src/keasy.js",
+    "static": true,
+    "longname": "src/keasy.js~milliseconds",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/keasy.js",
+    "importStyle": "{milliseconds}",
+    "description": "",
+    "lineNumber": 37,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 40,
+    "kind": "variable",
+    "name": "seconds",
+    "memberof": "src/keasy.js",
+    "static": true,
+    "longname": "src/keasy.js~seconds",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/keasy.js",
+    "importStyle": "{seconds}",
+    "description": "",
+    "lineNumber": 41,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 41,
+    "kind": "variable",
+    "name": "minutes",
+    "memberof": "src/keasy.js",
+    "static": true,
+    "longname": "src/keasy.js~minutes",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/keasy.js",
+    "importStyle": "{minutes}",
+    "description": "",
+    "lineNumber": 45,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 42,
+    "kind": "class",
+    "name": "Keasy",
+    "memberof": "src/keasy.js",
+    "static": true,
+    "longname": "src/keasy.js~Keasy",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/keasy.js",
+    "importStyle": "Keasy",
+    "description": null,
+    "lineNumber": 47,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "interface": false
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "name": "KeyBoardEvent",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/KeyBoardEvent",
+    "memberof": "src/keasy.js",
+    "static": true,
+    "longname": "src/keasy.js~KeyBoardEvent",
+    "access": null,
+    "description": ""
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "name": "EventTarget",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/EventTarget",
+    "memberof": "src/keasy.js",
+    "static": true,
+    "longname": "src/keasy.js~EventTarget",
+    "access": null,
+    "description": ""
+  },
+  {
+    "__docId__": 45,
+    "kind": "method",
+    "name": "when",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#when",
+    "access": null,
+    "description": "Sets the eventType {@link String} this {@link Keasy} instance will capture.",
+    "examples": [
+      "<caption>Example 1 (Using Keasy shorthand)</caption>\nKeasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn(\"Keasy-peasy!\")});",
+      "<caption>Example 2 (Using string)</caption>\nKeasy.when('keydown').on(document.getElementById('fancyId')).then(function(){console.warn(\"Keasy-peasy!\")});"
+    ],
+    "lineNumber": 65,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Keasy}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "eventType",
+        "description": "This parameter is optional. If Keasy.when(eventType) is not passed an eventType it defaults to 'keydown'. Passing an eventType is advisable for readability purposes."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Keasy"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 46,
+    "kind": "member",
+    "name": "_event",
+    "memberof": "src/keasy.js~Keasy",
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_event",
+    "access": null,
+    "description": null,
+    "lineNumber": 67,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 47,
+    "kind": "member",
+    "name": "_event",
+    "memberof": "src/keasy.js~Keasy",
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_event",
+    "access": null,
+    "description": null,
+    "lineNumber": 70,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 48,
+    "kind": "method",
+    "name": "on",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#on",
+    "access": null,
+    "description": "Binds an {@link EventTarget} to this {@link Keasy} instance.",
+    "examples": [
+      "<caption>Example 1 (Using DOM)</caption>\nKeasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn(\"Keasy-peasy!\")});",
+      "<caption>Example 2 (Using jQuery)</caption>\nKeasy.when(Keasy.down).on($('#fancyId')[0]).then(function(){console.warn(\"Keasy-peasy!\")});"
+    ],
+    "lineNumber": 85,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Keasy}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "EventTarget"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "eventTarget",
+        "description": "The targeted {@link EventTarget} Keasy should target for {@link KeyBoardEvent}."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Keasy"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "throws": [
+      {
+        "types": [
+          "TypeError"
+        ],
+        "description": "If {@link Keasy.on} is not passed a valid {@link EventTarget} it will throw a {@link TypeError}."
+      }
+    ]
+  },
+  {
+    "__docId__": 49,
+    "kind": "member",
+    "name": "_eventTarget",
+    "memberof": "src/keasy.js~Keasy",
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_eventTarget",
+    "access": null,
+    "description": null,
+    "lineNumber": 88,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 50,
+    "kind": "method",
+    "name": "then",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#then",
+    "access": null,
+    "description": "Binds a callback {@link Function} to this Keasy intsance.\nNot calling {@link Keasy.then} means Keasy produces no output. Keasy still catches events of the type passed to {@link Keasy.when}.\nMeaning you can call {@link Keasy.then} at another point in your code. See Example 3 for details.",
+    "examples": [
+      "<caption>Example 1</caption>\nKeasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn('Thank you!!')});",
+      "<caption>Example 2</caption>\nKeasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){document.getElementById('pretty').innterText = \"Thank you!!\"});",
+      "<caption>Example 3</caption>\nvar keasy = Keasy.when(Keasy.down).on(document.getElementById('fancyId'));\ndocument.getElementById('pretty').innerText = \"Waiting is so boring..\";\nfunction delayedThen(){\n     document.getElementById('pretty').innerText = \"Ok I'm fed up with waiting.. For the love of God please type something!\";\n     keasy.then(function(){\n         document.getElementById('pretty').innerText = \"Thank you!!\";\n     });\n};\nwindow.setTimeout(delayedThen, 5000);"
+    ],
+    "lineNumber": 118,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Keasy}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "callback",
+        "description": "The Function Keasy will call after it has caught a {@link KeyBoardEvent}."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Keasy"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "throws": [
+      {
+        "types": [
+          "TypeError"
+        ],
+        "description": "If Keasy.then(callback) is not passed a {@link Function} a {@link TypeError} is thrown."
+      }
+    ]
+  },
+  {
+    "__docId__": 51,
+    "kind": "member",
+    "name": "_callback",
+    "memberof": "src/keasy.js~Keasy",
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_callback",
+    "access": null,
+    "description": null,
+    "lineNumber": 121,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "method",
+    "name": "after",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#after",
+    "access": null,
+    "description": "Sets the amount of time and the unit of time this {@link Keasy} instance should wait until triggering the callback set in {@link Keasy.then}",
+    "examples": [
+      "<caption>Example 1</caption>\nKeasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn('Thank you!!')}).after(600);",
+      "<caption>Example 2</caption>\nKeasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn('Thank you!!')}).after(60000, Keasy.milliseconds);",
+      "<caption>Example 3</caption>\nKeasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn('Thank you!!')}).after(60, Keasy.seconds);",
+      "<caption>Example 4</caption>\nKeasy.when(Keasy.down).on(document.getElementById('fancyId')).then(function(){console.warn('Thank you!!')}).after(1, Keasy.minutes);"
+    ],
+    "lineNumber": 146,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Keasy}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "amount",
+        "description": "The amount of time Keasy waits until the {@link EventTarget} passed to {@link Keasy.on} stops firing {@link KeyBoardEvent}s."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "unit",
+        "description": "This parameter is optional. If  Keasy.after(amount,unit) is not passed a unit it defaults to milliseconds."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Keasy"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "throws": [
+      {
+        "types": [
+          "TypeError"
+        ],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "__docId__": 53,
+    "kind": "member",
+    "name": "_delay",
+    "memberof": "src/keasy.js~Keasy",
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_delay",
+    "access": null,
+    "description": null,
+    "lineNumber": 149,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "method",
+    "name": "off",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#off",
+    "access": null,
+    "description": "Removes the current listener from the {@link EventTarget} passed to {@link Keasy.on}.",
+    "lineNumber": 162,
+    "params": []
+  },
+  {
+    "__docId__": 55,
+    "kind": "method",
+    "name": "is",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#is",
+    "access": null,
+    "description": "Binds a {@link String} representing a set of keys to this {@link Keasy} instance limiting when the callback {@link Function} passed to {@link Keasy.then} gets called.\nThe keys in the {String} that is passed should be divided by a \"+\" character.",
+    "examples": [
+      "<caption>Example 1</caption>\nKeasy.when(Keasy.eventType).on(target).is(Keasy.ctrl+\"+k\").then(function(){console.warn(\"Event was CTRL+K\")})"
+    ],
+    "lineNumber": 177,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Keasy}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "keyString",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Keasy"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "throws": [
+      {
+        "types": [
+          "TypeError"
+        ],
+        "description": "If {@link Keasy.is} is not passed a {String} a {@link TypeError} is thrown."
+      }
+    ]
+  },
+  {
+    "__docId__": 56,
+    "kind": "member",
+    "name": "_keyStringToMatch",
+    "memberof": "src/keasy.js~Keasy",
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_keyStringToMatch",
+    "access": null,
+    "description": null,
+    "lineNumber": 180,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "method",
+    "name": "_generateKeyEventObject",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_generateKeyEventObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 190,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "eventName",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "method",
+    "name": "_subscribeToEvent",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_subscribeToEvent",
+    "access": null,
+    "description": null,
+    "lineNumber": 201,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": []
+  },
+  {
+    "__docId__": 59,
+    "kind": "member",
+    "name": "_eventListener",
+    "memberof": "src/keasy.js~Keasy",
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_eventListener",
+    "access": null,
+    "description": null,
+    "lineNumber": 202,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "method",
+    "name": "_generateExecutor",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_generateExecutor",
+    "access": null,
+    "description": null,
+    "lineNumber": 206,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "name": "_generateDebouncedListener",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_generateDebouncedListener",
+    "access": null,
+    "description": null,
+    "lineNumber": 211,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 62,
+    "kind": "method",
+    "name": "_genereateRegularListener",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_genereateRegularListener",
+    "access": null,
+    "description": null,
+    "lineNumber": 227,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 63,
+    "kind": "method",
+    "name": "_removeKeasyEventSpace",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_removeKeasyEventSpace",
+    "access": null,
+    "description": null,
+    "lineNumber": 243,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "eventString",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 64,
+    "kind": "method",
+    "name": "_hasDelay",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_hasDelay",
+    "access": null,
+    "description": null,
+    "lineNumber": 247,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 65,
+    "kind": "method",
+    "name": "_toMilliseconds",
+    "memberof": "src/keasy.js~Keasy",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keasy.js~Keasy#_toMilliseconds",
+    "access": null,
+    "description": null,
+    "lineNumber": 251,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "amount",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "unit",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 66,
+    "kind": "file",
+    "name": "src/keymatcher.js",
+    "content": "/**\r\n * Created by Robert on 1-6-2017.\r\n */\r\nimport _isString from 'lodash/isString'\r\nexport const ctrl = 'CTRL';\r\nexport const alt = 'ALT';\r\nexport const shift = 'SHIFT';\r\n\r\nexport default class KeyMatcher {\r\n\r\n    constructor() {\r\n        this._keys = [];\r\n    }\r\n\r\n    /**\r\n     * @desc Sets a {String} of keys this instance of {@link KeyMatcher} should match for calls to {@link KeyMatcher.with} and {@link KeyMatcher.withEvent}.\r\n     * @param {String} keyString - A {@link String} of the form \"keyX+keyY+...+KeyN\".\r\n     * @returns {KeyMatcher}\r\n     */\r\n    match(keyString) {\r\n        //TODO: Use regex to filter whitespace.\r\n        const keys = keyString.split('+');\r\n        this._setKeysToMatch(keys);\r\n        return this;\r\n    }\r\n\r\n    //TODO: Remove this function \"registered as keyword error\"\r\n    /**\r\n     * @desc Matches the keys passed to {@link KeyMatcher.match} with the passed {@link KeyBoardEvent}.\r\n     * @param {KeyBoardEvent} event - A {@link KeyBoardEvent} the keys passed to {@link KeyMatcher.match} will be matched with.\r\n     * @returns {boolean}\r\n     * @deprecated\r\n     */\r\n    with(event) {\r\n        const EVENT_TYPE_ERROR = \"KeyMatcher.with(event) expects a KeyBoardEvent. This isn't one.\";\r\n        if (event instanceof KeyboardEvent) {\r\n            return this.withEvent(event);\r\n        }\r\n        else{\r\n            throw new TypeError(EVENT_TYPE_ERROR)\r\n        }\r\n    }\r\n\r\n    /**\r\n     * @desc Matches the keys passed to {@link KeyMatcher.match} with the passed {@link KeyBoardEvent}.\r\n     * @param {KeyBoardEvent} event - A {@link KeyBoardEvent} the keys passed to {@link KeyMatcher.match} will be matched with.\r\n     * @returns {boolean}\r\n     */\r\n    withEvent(event) {\r\n        return !!this._matchesKeys(event);\r\n    }\r\n\r\n    _setKeysToMatch(keys) {\r\n        keys.forEach((key) => {\r\n            switch (key) {\r\n                case ctrl:\r\n                    this._verifyCtrl();\r\n                    break;\r\n                case alt:\r\n                    this._verifyAlt();\r\n                    break;\r\n                case shift:\r\n                    this._verifyShift();\r\n                    break;\r\n                default:\r\n                    this._verifyKey(key);\r\n            }\r\n        });\r\n    }\r\n\r\n    _verifyCtrl() {\r\n        this._checkCtrl = true;\r\n    }\r\n\r\n    _verifyAlt() {\r\n        this._checkAlt = true;\r\n    }\r\n\r\n    _verifyShift() {\r\n        this._checkShift = true;\r\n    }\r\n\r\n    _verifyKey(key) {\r\n        this._keys.push(key);\r\n    }\r\n\r\n    /**\r\n     * @param {KeyBoardEvent} event - A {@link KeyBoardEvent} this instance of {@link KeyMatcher} matches its keys to.\r\n     * @returns {boolean|*}\r\n     * @private\r\n     */\r\n    _matchesKeys(event) {\r\n        let matchesAllKeys = false;\r\n        for (let i = 0; i < this._keys.length; i++) {\r\n            const key = this._keys[i];\r\n            const matches = (key === event.key);\r\n            matchesAllKeys = matches;\r\n            if (!matches) {\r\n                break\r\n            }\r\n        }\r\n        return matchesAllKeys && this._shouldMatchFunctionKeys(event);\r\n    }\r\n\r\n    _shouldMatchFunctionKeys(event) {\r\n        this._shouldMatchCtrl(event.ctrlKey) && this._shouldMatchAlt(event.altKey) && this._shouldMatchShift(event.shiftKey);\r\n    }\r\n\r\n    _shouldMatchShift(pressedShift) {\r\n        return this._shouldMatchFunctionKey(pressedShift, this._checkShift)\r\n    }\r\n\r\n    _shouldMatchCtrl(pressedCtrl) {\r\n        return this._shouldMatchFunctionKey(pressedCtrl, this._checkCtrl)\r\n    }\r\n\r\n    _shouldMatchAlt(pressedAlt) {\r\n        return this._shouldMatchFunctionKey(pressedAlt, this._checkAlt)\r\n    }\r\n\r\n    _shouldMatchFunctionKey(pressedFunctionKey, shouldMatch) {\r\n        if (shouldMatch) {\r\n            return pressedFunctionKey === shouldMatch;\r\n        }\r\n        return true;\r\n    }\r\n}",
+    "static": true,
+    "longname": "src/keymatcher.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 67,
+    "kind": "variable",
+    "name": "ctrl",
+    "memberof": "src/keymatcher.js",
+    "static": true,
+    "longname": "src/keymatcher.js~ctrl",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/keymatcher.js",
+    "importStyle": "{ctrl}",
+    "description": null,
+    "lineNumber": 5,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "variable",
+    "name": "alt",
+    "memberof": "src/keymatcher.js",
+    "static": true,
+    "longname": "src/keymatcher.js~alt",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/keymatcher.js",
+    "importStyle": "{alt}",
+    "description": null,
+    "lineNumber": 6,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 69,
+    "kind": "variable",
+    "name": "shift",
+    "memberof": "src/keymatcher.js",
+    "static": true,
+    "longname": "src/keymatcher.js~shift",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/keymatcher.js",
+    "importStyle": "{shift}",
+    "description": null,
+    "lineNumber": 7,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "string"
+      ]
+    }
+  },
+  {
+    "__docId__": 70,
+    "kind": "class",
+    "name": "KeyMatcher",
+    "memberof": "src/keymatcher.js",
+    "static": true,
+    "longname": "src/keymatcher.js~KeyMatcher",
+    "access": null,
+    "export": true,
+    "importPath": "keasy/src/keymatcher.js",
+    "importStyle": "KeyMatcher",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "interface": false
+  },
+  {
+    "__docId__": 71,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": []
+  },
+  {
+    "__docId__": 72,
+    "kind": "member",
+    "name": "_keys",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_keys",
+    "access": null,
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 73,
+    "kind": "method",
+    "name": "match",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#match",
+    "access": null,
+    "description": "Sets a {String} of keys this instance of {@link KeyMatcher} should match for calls to {@link KeyMatcher.with} and {@link KeyMatcher.withEvent}.",
+    "lineNumber": 20,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{KeyMatcher}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "keyString",
+        "description": "A {@link String} of the form \"keyX+keyY+...+KeyN\"."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "KeyMatcher"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 74,
+    "kind": "method",
+    "name": "with",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#with",
+    "access": null,
+    "description": "Matches the keys passed to {@link KeyMatcher.match} with the passed {@link KeyBoardEvent}.",
+    "lineNumber": 34,
+    "deprecated": true,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "KeyBoardEvent"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event",
+        "description": "A {@link KeyBoardEvent} the keys passed to {@link KeyMatcher.match} will be matched with."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 75,
+    "kind": "method",
+    "name": "withEvent",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#withEvent",
+    "access": null,
+    "description": "Matches the keys passed to {@link KeyMatcher.match} with the passed {@link KeyBoardEvent}.",
+    "lineNumber": 49,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "KeyBoardEvent"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event",
+        "description": "A {@link KeyBoardEvent} the keys passed to {@link KeyMatcher.match} will be matched with."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 76,
+    "kind": "method",
+    "name": "_setKeysToMatch",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_setKeysToMatch",
+    "access": null,
+    "description": null,
+    "lineNumber": 53,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "keys",
+        "types": [
+          "*"
+        ]
+      }
+    ]
+  },
+  {
+    "__docId__": 77,
+    "kind": "method",
+    "name": "_verifyCtrl",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_verifyCtrl",
+    "access": null,
+    "description": null,
+    "lineNumber": 71,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": []
+  },
+  {
+    "__docId__": 78,
+    "kind": "member",
+    "name": "_checkCtrl",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_checkCtrl",
+    "access": null,
+    "description": null,
+    "lineNumber": 72,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 79,
+    "kind": "method",
+    "name": "_verifyAlt",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_verifyAlt",
+    "access": null,
+    "description": null,
+    "lineNumber": 75,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": []
+  },
+  {
+    "__docId__": 80,
+    "kind": "member",
+    "name": "_checkAlt",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_checkAlt",
+    "access": null,
+    "description": null,
+    "lineNumber": 76,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 81,
+    "kind": "method",
+    "name": "_verifyShift",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_verifyShift",
+    "access": null,
+    "description": null,
+    "lineNumber": 79,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": []
+  },
+  {
+    "__docId__": 82,
+    "kind": "member",
+    "name": "_checkShift",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_checkShift",
+    "access": null,
+    "description": null,
+    "lineNumber": 80,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 83,
+    "kind": "method",
+    "name": "_verifyKey",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_verifyKey",
+    "access": null,
+    "description": null,
+    "lineNumber": 83,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "key",
+        "types": [
+          "*"
+        ]
+      }
+    ]
+  },
+  {
+    "__docId__": 84,
+    "kind": "method",
+    "name": "_matchesKeys",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_matchesKeys",
+    "access": "private",
+    "description": "",
+    "lineNumber": 92,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{boolean|*}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "KeyBoardEvent"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event",
+        "description": "A {@link KeyBoardEvent} this instance of {@link KeyMatcher} matches its keys to."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean",
+        "*"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "name": "_shouldMatchFunctionKeys",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_shouldMatchFunctionKeys",
+    "access": null,
+    "description": null,
+    "lineNumber": 105,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "event",
+        "types": [
+          "*"
+        ]
+      }
+    ]
+  },
+  {
+    "__docId__": 86,
+    "kind": "method",
+    "name": "_shouldMatchShift",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_shouldMatchShift",
+    "access": null,
+    "description": null,
+    "lineNumber": 109,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "pressedShift",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 87,
+    "kind": "method",
+    "name": "_shouldMatchCtrl",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_shouldMatchCtrl",
+    "access": null,
+    "description": null,
+    "lineNumber": 113,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "pressedCtrl",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 88,
+    "kind": "method",
+    "name": "_shouldMatchAlt",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_shouldMatchAlt",
+    "access": null,
+    "description": null,
+    "lineNumber": 117,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "pressedAlt",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 89,
+    "kind": "method",
+    "name": "_shouldMatchFunctionKey",
+    "memberof": "src/keymatcher.js~KeyMatcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/keymatcher.js~KeyMatcher#_shouldMatchFunctionKey",
+    "access": null,
+    "description": null,
+    "lineNumber": 121,
+    "undocument": true,
+    "unknown": [
+      {
+        "tagName": "@_undocument",
+        "tagValue": ""
+      }
+    ],
+    "params": [
+      {
+        "name": "pressedFunctionKey",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "shouldMatch",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 90,
+    "kind": "file",
+    "name": "src/test/test.js",
+    "content": "/**\r\n * Created by Robert on 28-5-2017.\r\n */\r\nKeysy.when(Keysy.KEYDOWN).on(document.getElementById('id')).then(function(){console.warn('Doing stuff')}).after(2, Keysy.seconds);",
+    "static": true,
+    "longname": "src/test/test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 92,
+    "kind": "external",
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Infinity",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 93,
+    "kind": "external",
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~NaN",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 94,
+    "kind": "external",
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~undefined",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 95,
+    "kind": "external",
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~null",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 96,
+    "kind": "external",
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 97,
+    "kind": "external",
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 98,
+    "kind": "external",
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 99,
+    "kind": "external",
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 100,
+    "kind": "external",
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 101,
+    "kind": "external",
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 102,
+    "kind": "external",
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Symbol",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 103,
+    "kind": "external",
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Error",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 104,
+    "kind": "external",
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~EvalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 105,
+    "kind": "external",
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~InternalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 106,
+    "kind": "external",
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RangeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 107,
+    "kind": "external",
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 108,
+    "kind": "external",
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 109,
+    "kind": "external",
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~TypeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 110,
+    "kind": "external",
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~URIError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 111,
+    "kind": "external",
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 112,
+    "kind": "external",
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 113,
+    "kind": "external",
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Date",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 114,
+    "kind": "external",
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~String",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 115,
+    "kind": "external",
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~string",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 116,
+    "kind": "external",
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RegExp",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 117,
+    "kind": "external",
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 118,
+    "kind": "external",
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 119,
+    "kind": "external",
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 120,
+    "kind": "external",
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 121,
+    "kind": "external",
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 122,
+    "kind": "external",
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 123,
+    "kind": "external",
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 124,
+    "kind": "external",
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 125,
+    "kind": "external",
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 126,
+    "kind": "external",
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 127,
+    "kind": "external",
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Map",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 128,
+    "kind": "external",
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Set",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 129,
+    "kind": "external",
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 130,
+    "kind": "external",
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 131,
+    "kind": "external",
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 132,
+    "kind": "external",
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~DataView",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 133,
+    "kind": "external",
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~JSON",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 134,
+    "kind": "external",
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Promise",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 135,
+    "kind": "external",
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Generator",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 136,
+    "kind": "external",
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 137,
+    "kind": "external",
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Reflect",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 138,
+    "kind": "external",
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Proxy",
+    "access": null,
+    "description": "",
+    "lineNumber": 193,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 140,
+    "kind": "external",
+    "name": "CanvasRenderingContext2D",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 141,
+    "kind": "external",
+    "name": "DocumentFragment",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 142,
+    "kind": "external",
+    "name": "Element",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Element",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 143,
+    "kind": "external",
+    "name": "Event",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Event",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 144,
+    "kind": "external",
+    "name": "Node",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~Node",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 145,
+    "kind": "external",
+    "name": "NodeList",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~NodeList",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 146,
+    "kind": "external",
+    "name": "XMLHttpRequest",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 147,
+    "kind": "external",
+    "name": "AudioContext",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "static": true,
+    "longname": "BuiltinExternal/WebAPIExternal.js~AudioContext",
+    "access": null,
+    "description": "",
+    "lineNumber": 34,
+    "builtinExternal": true
+  }
+]

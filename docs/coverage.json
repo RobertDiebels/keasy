@@ -1,0 +1,69 @@
+{
+  "coverage": "64.44%",
+  "expectCount": 45,
+  "actualCount": 29,
+  "files": {
+    "src/eventlistener.js": {
+      "expectCount": 4,
+      "actualCount": 4,
+      "undocumentLines": []
+    },
+    "src/keasy.js": {
+      "expectCount": 13,
+      "actualCount": 12,
+      "undocumentLines": [
+        47
+      ]
+    },
+    "src/events/keydown.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4
+      ]
+    },
+    "src/events/keyevent.js": {
+      "expectCount": 4,
+      "actualCount": 0,
+      "undocumentLines": [
+        7,
+        8,
+        16,
+        12
+      ]
+    },
+    "src/keymatcher.js": {
+      "expectCount": 8,
+      "actualCount": 3,
+      "undocumentLines": [
+        9,
+        6,
+        11,
+        5,
+        7
+      ]
+    },
+    "src/events/keypress.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4
+      ]
+    },
+    "src/events/keyup.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        3,
+        4
+      ]
+    },
+    "src/index.js": {
+      "expectCount": 10,
+      "actualCount": 10,
+      "undocumentLines": []
+    }
+  }
+}

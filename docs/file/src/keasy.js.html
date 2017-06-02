@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/keasy.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/eventlistener.js~EventListener.html">EventListener</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/keasy.js~Keasy.html">Keasy</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/keymatcher.js~KeyMatcher.html">KeyMatcher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-keydown">keydown</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-keypress">keypress</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-keyup">keyup</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-when">when</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-down">down</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-milliseconds">milliseconds</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-minutes">minutes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-press">press</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-seconds">seconds</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-up">up</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-down">down</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-milliseconds">milliseconds</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-minutes">minutes</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-press">press</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-seconds">seconds</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-up">up</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-alt">alt</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-ctrl">ctrl</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-shift">shift</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget">EventTarget</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyBoardEvent">KeyBoardEvent</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">events</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/events/keydown.js~KeyDown.html">KeyDown</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/events/keyevent.js~KeyEvent.html">KeyEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/events/keypress.js~KeyPress.html">KeyPress</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/events/keyup.js~KeyUp.html">KeyUp</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/keasy.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * Created by Robert on 28-5-2017.
+ */
+import _isString from &apos;lodash/isString&apos;;
+import _isInteger from &apos;lodash/isInteger&apos;;
+import _isFunction from &apos;lodash/isFunction&apos;;
+import _debounce from &apos;lodash/debounce&apos;;
+import _keys from &apos;lodash/keys&apos;
+import KeyDown from &apos;./events/keydown&apos;;
+import KeyPress from &apos;./events/keypress&apos;;
+import KeyUp from &apos;./events/keyup&apos;;
+import EventListener from &apos;./eventlistener&apos;;
+import KeyMatcher from &apos;./keymatcher&apos;;
+
+const keasyEventSpace = &quot;keasy:&quot;;
+/**
+ * @type {string}
+ */
+export const down = keasyEventSpace + &quot;keydown&quot;;
+/**
+ * @type {string}
+ */
+export const up = keasyEventSpace + &quot;keyup&quot;;
+/**
+ * @type {string}
+ */
+export const press = keasyEventSpace + &quot;keypress&quot;;
+const eventMap = {
+    &apos;keydown&apos;: KeyDown,
+    &apos;keypress&apos;: KeyPress,
+    &apos;keyup&apos;: KeyUp
+};
+
+/**
+ * @type {string}
+ */
+export const milliseconds = &apos;milliseconds&apos;;
+/**
+ * @type {string}
+ */
+export const seconds = &apos;seconds&apos;;
+/**
+ * @type {string}
+ */
+export const minutes = &apos;minutes&apos;;
+
+export default class Keasy {
+
+    /**
+     * @external {KeyBoardEvent} https://developer.mozilla.org/en-US/docs/Web/API/KeyBoardEvent
+     */
+    /**
+     * @external {EventTarget} https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
+     */
+
+    /**
+     * @desc Sets the eventType {@link String} this {@link Keasy} instance will capture.
+     * @param {String} [eventType] - This parameter is optional. If Keasy.when(eventType) is not passed an eventType it defaults to &apos;keydown&apos;. Passing an eventType is advisable for readability purposes.
+     * @returns {Keasy}
+     * @example &lt;caption&gt;Example 1 (Using Keasy shorthand)&lt;/caption&gt;
+     * Keasy.when(Keasy.down).on(document.getElementById(&apos;fancyId&apos;)).then(function(){console.warn(&quot;Keasy-peasy!&quot;)});
+     * @example &lt;caption&gt;Example 2 (Using string)&lt;/caption&gt;
+     * Keasy.when(&apos;keydown&apos;).on(document.getElementById(&apos;fancyId&apos;)).then(function(){console.warn(&quot;Keasy-peasy!&quot;)});
+     */
+    when(eventType) {
+        if (_isString(eventType)) {
+            this._event = this._generateKeyEventObject(this._removeKeasyEventSpace(eventType));
+        }
+        else {
+            this._event = new KeyDown();
+        }
+        return this;
+    }
+
+    /**
+     * @desc Binds an {@link EventTarget} to this {@link Keasy} instance.
+     * @param {EventTarget} eventTarget - The targeted {@link EventTarget} Keasy should target for {@link KeyBoardEvent}.
+     * @throws {TypeError} If {@link Keasy.on} is not passed a valid {@link EventTarget} it will throw a {@link TypeError}.
+     * @returns {Keasy}
+     * @example &lt;caption&gt;Example 1 (Using DOM)&lt;/caption&gt;
+     * Keasy.when(Keasy.down).on(document.getElementById(&apos;fancyId&apos;)).then(function(){console.warn(&quot;Keasy-peasy!&quot;)});
+     * @example &lt;caption&gt;Example 2 (Using jQuery)&lt;/caption&gt;
+     * Keasy.when(Keasy.down).on($(&apos;#fancyId&apos;)[0]).then(function(){console.warn(&quot;Keasy-peasy!&quot;)});
+     */
+    on(eventTarget) {
+        const DOMELEMENT_TYPE_ERROR = &quot;Keasy.on(eventTarget) expects &apos;eventTarget&apos; to be a valid EventTarget. It isn&apos;t.&quot;;
+        if (eventTarget instanceof EventTarget) {
+            this._eventTarget = eventTarget;
+        }
+        else {
+            throw new TypeError(DOMELEMENT_TYPE_ERROR);
+        }
+        return this;
+    }
+
+    /**
+     * @desc Binds a callback {@link Function} to this Keasy intsance.
+     * Not calling {@link Keasy.then} means Keasy produces no output. Keasy still catches events of the type passed to {@link Keasy.when}.
+     * Meaning you can call {@link Keasy.then} at another point in your code. See Example 3 for details.
+     * @param {Function} callback - The Function Keasy will call after it has caught a {@link KeyBoardEvent}.
+     * @throws {TypeError} If Keasy.then(callback) is not passed a {@link Function} a {@link TypeError} is thrown.
+     * @returns {Keasy}
+     * @example &lt;caption&gt;Example 1&lt;/caption&gt;
+     * Keasy.when(Keasy.down).on(document.getElementById(&apos;fancyId&apos;)).then(function(){console.warn(&apos;Thank you!!&apos;)});
+     * @example &lt;caption&gt;Example 2&lt;/caption&gt;
+     * Keasy.when(Keasy.down).on(document.getElementById(&apos;fancyId&apos;)).then(function(){document.getElementById(&apos;pretty&apos;).innterText = &quot;Thank you!!&quot;});
+     * @example &lt;caption&gt;Example 3&lt;/caption&gt;
+     * var keasy = Keasy.when(Keasy.down).on(document.getElementById(&apos;fancyId&apos;));
+     * document.getElementById(&apos;pretty&apos;).innerText = &quot;Waiting is so boring..&quot;;
+     * function delayedThen(){
+     *      document.getElementById(&apos;pretty&apos;).innerText = &quot;Ok I&apos;m fed up with waiting.. For the love of God please type something!&quot;;
+     *      keasy.then(function(){
+     *          document.getElementById(&apos;pretty&apos;).innerText = &quot;Thank you!!&quot;;
+     *      });
+     * };
+     * window.setTimeout(delayedThen, 5000);
+     */
+    then(callback) {
+        const CALLBACK_TYPE_ERROR = &quot;Keasy.then(callback) expects &apos;callback&apos; to be a Function. It isn&apos;t.&quot;;
+        if (_isFunction(callback)) {
+            this._callback = callback;
+            this.off();
+            this._subscribeToEvent();
+        }
+        else {
+            throw new TypeError(CALLBACK_TYPE_ERROR);
+        }
+        return this;
+    }
+
+    /**
+     * @desc Sets the amount of time and the unit of time this {@link Keasy} instance should wait until triggering the callback set in {@link Keasy.then}
+     * @param {Number} amount - The amount of time Keasy waits until the {@link EventTarget} passed to {@link Keasy.on} stops firing {@link KeyBoardEvent}s.
+     * @param {String} [unit] - This parameter is optional. If  Keasy.after(amount,unit) is not passed a unit it defaults to milliseconds.
+     * @throws {TypeError}
+     * @returns {Keasy}
+     * @example &lt;caption&gt;Example 1&lt;/caption&gt;
+     * Keasy.when(Keasy.down).on(document.getElementById(&apos;fancyId&apos;)).then(function(){console.warn(&apos;Thank you!!&apos;)}).after(600);
+     * @example &lt;caption&gt;Example 2&lt;/caption&gt;
+     * Keasy.when(Keasy.down).on(document.getElementById(&apos;fancyId&apos;)).then(function(){console.warn(&apos;Thank you!!&apos;)}).after(60000, Keasy.milliseconds);
+     * @example &lt;caption&gt;Example 3&lt;/caption&gt;
+     * Keasy.when(Keasy.down).on(document.getElementById(&apos;fancyId&apos;)).then(function(){console.warn(&apos;Thank you!!&apos;)}).after(60, Keasy.seconds);
+     * @example &lt;caption&gt;Example 4&lt;/caption&gt;
+     * Keasy.when(Keasy.down).on(document.getElementById(&apos;fancyId&apos;)).then(function(){console.warn(&apos;Thank you!!&apos;)}).after(1, Keasy.minutes);
+     */
+    after(amount, unit) {
+        const AMOUNT_TYPE_ERROR = &quot;Keasy.after(amount,unit) expects &apos;amount&apos; to be an Integer. It isn&apos;t.&quot;;
+        if (_isInteger(amount)) {
+            this._delay = this._toMilliseconds(amount, unit || milliseconds);
+            this.off();
+            this._subscribeToEvent();
+        }
+        else{
+            throw new TypeError(AMOUNT_TYPE_ERROR);
+        }
+        return this;
+    }
+
+    /**
+     * @desc Removes the current listener from the {@link EventTarget} passed to {@link Keasy.on}.
+     */
+    off() {
+        if (this._eventListener) {
+            this._eventListener.removeFrom(this._eventTarget);
+        }
+    }
+
+    /**
+     * @desc Binds a {@link String} representing a set of keys to this {@link Keasy} instance limiting when the callback {@link Function} passed to {@link Keasy.then} gets called.
+     * The keys in the {String} that is passed should be divided by a &quot;+&quot; character.
+     * @param {String} keyString
+     * @throws {TypeError} If {@link Keasy.is} is not passed a {String} a {@link TypeError} is thrown.
+     * @returns {Keasy}
+     * @example &lt;caption&gt;Example 1&lt;/caption&gt;
+     * Keasy.when(Keasy.eventType).on(target).is(Keasy.ctrl+&quot;+k&quot;).then(function(){console.warn(&quot;Event was CTRL+K&quot;)})
+     */
+    is(keyString) {
+        const KEYSTRING_TYPE_ERROR = &quot;Keasy.is(keyString) expects &apos;keyString&apos; to be a String. It isn&apos;t.&quot;;
+        if (_isString(keyString)) {
+            this._keyStringToMatch = keyString;
+            this.off();
+            this._subscribeToEvent();
+        }
+        else{
+            throw new TypeError(KEYSTRING_TYPE_ERROR);
+        }
+        return this;
+    }
+
+    _generateKeyEventObject(eventName) {
+        let event = null;
+        _keys(eventMap).forEach((key) =&gt; {
+            const keyEvent = new eventMap[key]();
+            if (keyEvent.equals(eventName)) {
+                event = keyEvent;
+            }
+        });
+        return event;
+    }
+
+    _subscribeToEvent() {
+        this._eventListener = new EventListener(this._event, this._generateExecutor());
+        this._eventListener.addTo(this._eventTarget);
+    }
+
+    _generateExecutor() {
+
+        return (this._hasDelay()) ? this._generateDebouncedListener() : this._genereateRegularListener();
+    }
+
+    _generateDebouncedListener() {
+        const self = this;
+        const debouncedListener = _debounce(function () {
+            self._callback();
+        }, self._delay);
+
+
+        const keyMatchingDebouncedListener = _debounce(function (event) {
+            if (self._keyStringToMatch &amp;&amp; new KeyMatcher().match(self._keyStringToMatch).with(event)) {
+                self._callback();
+            }
+        }, self._delay);
+
+        return (this._keyStringToMatch) ? keyMatchingDebouncedListener : debouncedListener;
+    }
+
+    _genereateRegularListener() {
+        const self = this;
+
+        const listener = function () {
+            self._callback();
+        };
+
+        const keyMatchingListener = function (event) {
+            if (self._keyStringToMatch &amp;&amp; new KeyMatcher().match(self._keyStringToMatch).with(event)) {
+                self._callback();
+            }
+        };
+
+        return (this._keyStringToMatch) ? keyMatchingListener : listener;
+    }
+
+    _removeKeasyEventSpace(eventString) {
+        return eventString.replace(keasyEventSpace, &quot;&quot;);
+    }
+
+    _hasDelay() {
+        return _isInteger(this._delay);
+    }
+
+    _toMilliseconds(amount, unit) {
+        if (amount &gt; 0) {
+            switch (unit) {
+                case seconds:
+                    return amount * 1000;
+                case minutes:
+                    return amount * 60 * 1000;
+                default:
+                    return amount;
+            }
+        }
+        else {
+            return 0;
+        }
+    }
+}</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.5.2)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
