@@ -2,6 +2,6 @@ exclude:
 - /dist/keasy.js
 - /docs/script/.*
 - /webpack.config.js
-component_depth: 1
+component_depth: 2
 languages:
 - javascript
